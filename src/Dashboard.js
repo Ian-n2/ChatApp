@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import TextFeild from '@material-ui/core/TextField';
 
 
 const useStyles = makeStyles( theme => ({
@@ -38,6 +40,8 @@ const useStyles = makeStyles( theme => ({
 export default function Dashboard() {
 
     const classes = useStyles();
+
+    const [textValue, changeTextValue] = React.useState('');
     return (
         <div>
             <Paper className={classes.root}>
@@ -77,8 +81,14 @@ export default function Dashboard() {
                 </div>
 
                 <div className={classes.flex}>
-                   
-
+                    <TextFeild 
+                     label="Send a chat" 
+                     className={classes.chatBox} 
+                    value={textValue}
+                    onChange={e => changeTextValue(e.target.value)}
+                    />
+                    
+                <Button variant="contained" color="primary">Send</Button>       
                 </div>
             </Paper>
         </div>
